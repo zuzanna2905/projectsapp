@@ -5,7 +5,7 @@ Milia.setup do |config|
 
 # true if you wish to use a coupon-based option in your sign-up form
 # false to otherwise not expect a coupon attribute in the parameters
-  config.use_coupon = true
+  config.use_coupon = false
 
 # true if you use recaptcha on your sign-up form;
   # be sure to include the gem 'recaptcha' in your Gemfile
