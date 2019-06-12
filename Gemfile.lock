@@ -822,6 +822,10 @@ GEM
       responders
       warden (~> 1.2.3)
     devise-bootstrap-views (1.1.0)
+    dotenv (2.7.2)
+    dotenv-rails (2.7.2)
+      dotenv (= 2.7.2)
+      railties (>= 3.2, < 6.1)
     duktape (2.3.0.0)
     erubi (1.8.0)
     execjs (2.7.0)
@@ -975,6 +979,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-bootstrap-views
+  dotenv-rails
   duktape
   jbuilder (~> 2.5)
   jquery-rails
