@@ -5,4 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :validatable
   has_one :member, :dependent => :destroy
+
+  def is_admin?
+    is_admin    
+  end
 end
