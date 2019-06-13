@@ -1,10 +1,10 @@
 // function to get params from URL
 
 function GetURLParameter(sParam) {
-    const sPageURL = window.location.search.substring(1);
-    const sURLVariables = sPageURL.split('&');
-    for (let i = 0; i < sURLVariables.length; i++){
-        let sParameterName = sURLVariables[i].split('=');
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++){
+        var sParameterName = sURLVariables[i].split('=');
         if (sParameterName[0] == sParam){
             return sParameterName[1];    
         }    
@@ -12,10 +12,10 @@ function GetURLParameter(sParam) {
 };
    
 $(document).ready(function () {    
-    const show_error, stripeResponseHandler, submitHandler;    
+    var show_error, stripeResponseHandler, submitHandler;    
     // function to handle the submit of the form and intercept the default event
     submitHandler = function (event) {
-        let $form = $(event.target);
+        var $form = $(event.target);
         $form.find("input[type=submit]").prop("disabled", true);
         if(Stripe){
             Stripe.card.createToken($form, stripeResponseHandler);
@@ -29,8 +29,8 @@ $(document).ready(function () {
     $(".cc_form").on('submit', submitHandler);
     
     // handle event of plan drop down changing
-    const handlePlanChange = function(plan_type, form) {    
-        let $form = $(form);
+    var handlePlanChange = function(plan_type, form) {    
+        var $form = $(form);
         if(plan_type == undefined) {        
             plan_type = $('#tenant_plan :selected').val();
         }
@@ -56,7 +56,7 @@ $(document).ready(function () {
     
     // function to handle the token received from Stripe and remove credit card fields
     stripeResponseHandler = function (status, response) {
-        let token, $form;
+        var token, $form;
         $form = $('.cc_form');
         if (response.error) {        
             console.log(response.error.message);
