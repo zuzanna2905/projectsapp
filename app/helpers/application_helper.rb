@@ -35,4 +35,21 @@ module ApplicationHelper
   def s3_link(tenant_id, artifact_key)
     link_to artifact_key, "#{artifact_key}", class: 'main-link', target: 'new'
   end
+
+  def self.month_options
+    Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }
+  end
+    
+  def self.year_options    
+    (Date.today.year..(Date.today.year+10)).to_a
+  end
+
+  def process_payment
+    customer = Stripe::Customer.create email: email, card: token
+    Stripe::Charge.create customer: customer.id,
+      amount: 1000,
+      description: 'Premium',
+      currency: 'usd'
+  end
+
 end
